@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.trivia.databinding.FragmentFirstBinding;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FirstFragment#newInstance} factory method to
@@ -23,7 +25,7 @@ public class FirstFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+private FragmentFirstBinding binding;
     public FirstFragment() {
         // Required empty public constructor
     }
@@ -59,6 +61,12 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        binding = FragmentFirstBinding.inflate(getLayoutInflater(), container, false);
+       binding.btnInicio.setOnClickListener(view->{
+           String nombre=binding.editTextname.getText().toString();
+          //Bundle bundle= new
+
+
+        return binding.getRoot();
     }
 }

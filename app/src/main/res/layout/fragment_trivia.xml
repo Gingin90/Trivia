@@ -5,48 +5,93 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TriviaFragment">
-
+    android:background="#EFE9E9"
+    android:visibility="visible"
+    tools:context=".TriviaFragment"
+    tools:visibility="visible">
 
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="41dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_width="280dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="16dp"
+        android:text="Hola,"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="630dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="50dp"
-        android:layout_height="100dp"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="163dp"
-        tools:src="@tools:sample/avatars" />
+        android:layout_width="309dp"
+        android:layout_height="170dp"
+        android:layout_marginBottom="408dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:src="@drawable/image20230705193824" />
 
     <RadioGroup
-        android:layout_width="50dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        android:id="@+id/radioGroup"
+        android:layout_width="252dp"
+        android:layout_height="164dp"
+        android:layout_marginBottom="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEnviar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="50dp"
-            android:layout_height="100dp"
-            android:text="TextView" />
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Picachu"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text=" Charizard"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Bulbasaur"
+            android:textAlignment="center"
+            android:textSize="24sp" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="309dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="28dp"
+        android:text="¿Quien es este Pokemon?"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.617"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="93dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="16dp"
+        android:text="Enviar"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
