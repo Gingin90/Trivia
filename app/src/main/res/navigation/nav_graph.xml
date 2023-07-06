@@ -9,10 +9,27 @@
         android:id="@+id/firstFragment"
         android:name="com.example.trivia.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_triviaFragment"
+            app:destination="@id/triviaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/respuestaFragment"
         android:name="com.example.trivia.RespuestaFragment"
         android:label="fragment_respuesta"
-        tools:layout="@layout/fragment_respuesta" />
+        tools:layout="@layout/fragment_respuesta" >
+        <action
+            android:id="@+id/action_respuestaFragment_to_triviaFragment"
+            app:destination="@id/triviaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/triviaFragment"
+        android:name="com.example.trivia.TriviaFragment"
+        android:label="fragment_trivia"
+        tools:layout="@layout/fragment_trivia" >
+        <action
+            android:id="@+id/action_triviaFragment_to_respuestaFragment"
+            app:destination="@id/respuestaFragment" />
+    </fragment>
 </navigation>
