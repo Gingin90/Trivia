@@ -9,15 +9,15 @@
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="81dp"
+        android:layout_height="53dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
         tools:layout_conversion_absoluteHeight="45dp"
-        tools:layout_editor_absoluteY="0dp"
+        tools:layout_conversion_absoluteWidth="0dp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/button"
