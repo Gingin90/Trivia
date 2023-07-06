@@ -3,18 +3,16 @@ package com.example.trivia;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.trivia.databinding.FragmentTriviaBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TriviaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class TriviaFragment extends Fragment {
   private FragmentTriviaBinding binding;
     // TODO: Rename parameter arguments, choose names that match
@@ -30,15 +28,6 @@ public class TriviaFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TriviaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static TriviaFragment newInstance(String param1, String param2) {
         TriviaFragment fragment = new TriviaFragment();
         Bundle args = new Bundle();
@@ -56,11 +45,29 @@ public class TriviaFragment extends Fragment {
 
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        binding = FragmentTriviaBinding.inflate(getLayoutInflater(), container, false);
+        binding.textTitulo.setText("Hola " + mParam1);
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_trivia, container, false);
-    }
-}
+        //binding.radioGroupPokemon.setOnCheckedChangeListener((group,checkId)-> radioButtonResultado = che
+
+        binding.btnEnviar.setOnClickListener (view -> {
+
+            boolean correcto = false;
+            Bundle bundle = new Bundle();
+            if(binding.radioGroupPokemon.getCheckedRadioButtonId() == binding.radioButton1.getId()) {
+                correcto = true;
+
+
+                bundle.putString("nombre", mParam1);
+                bundle.putBoolean("respuesta", correcto);
+                Navigation.findNavController(getView()).navigate(R.id.action_triviaFragment_to_respuestaFragment, bundle);
+            });
+        
+        return binding.getRoot();
+    });
+}}

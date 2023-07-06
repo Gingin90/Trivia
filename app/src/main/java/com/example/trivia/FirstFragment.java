@@ -3,6 +3,7 @@ package com.example.trivia;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,8 @@ public class FirstFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 private FragmentFirstBinding binding;
+
+
     public FirstFragment() {
         // Required empty public constructor
     }
@@ -63,8 +66,18 @@ private FragmentFirstBinding binding;
         // Inflate the layout for this fragment
         binding = FragmentFirstBinding.inflate(getLayoutInflater(), container, false);
        binding.btnInicio.setOnClickListener(view->{
-           String nombre=binding.editTextname.getText().toString();
-          //Bundle bundle= new
+           String nombre  =binding.editTextname.getText().toString();
+           if(nombre.isEmpty()) {
+               return;
+           }
+          Bundle bundle= new Bundle();
+          bundle.putString("nombre",nombre);
+           Navigation.findNavController(getView()).navigate(R.id.action_firstFragment_to_triviaFragment,bundle);
+
+
+
+
+           });
 
 
         return binding.getRoot();

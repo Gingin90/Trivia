@@ -3,10 +3,13 @@ package com.example.trivia;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.trivia.databinding.FragmentRespuestaBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,7 +17,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class RespuestaFragment extends Fragment {
-
+ private FragmentRespuestaBinding binding;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,5 +63,26 @@ public class RespuestaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_respuesta, container, false);
+
+
+        binding = FragmentRespuestaBinding.inflate(getLayoutInflater(), container, false);
+
+        if(respuesta== true) {
+            binding.textViewResp.setText("Respuesta Correcta");
+        }else {
+            binding.textViewResp.setText("Respuesta Incorrecta");
+        }
+
+        binding.btnVolver.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("nombre",mParam1);
+            Navigation.findNavController(getView()).navigate(R.id.action_respuestaFragment_to_triviaFragment, bundle);
+
+        });
+
+
+
+        return binding.getRoot();
     }
 }
+
