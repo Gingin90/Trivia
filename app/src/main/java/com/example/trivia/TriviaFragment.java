@@ -20,7 +20,7 @@ public class TriviaFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     // TODO: Rename and change types of parameters
     private String mParam1;
-    private String mParam2;
+    private Boolean mParam2;
 
     public TriviaFragment() {
         // Required empty public constructor
@@ -47,7 +47,7 @@ public class TriviaFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         binding = FragmentTriviaBinding.inflate(getLayoutInflater(), container, false);
-        binding.textTitulo.setText("Hola " + mParam1);
+        binding.textTitulo.setText("Hola Gin " + mParam1);
        // return inflater.inflate(R.layout.fragment_trivia, container, false);
         binding.btnEnviar.setOnClickListener (view -> {
 
