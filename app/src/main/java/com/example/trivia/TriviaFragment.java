@@ -12,14 +12,12 @@ import android.widget.Toast;
 
 import com.example.trivia.databinding.FragmentTriviaBinding;
 
-
 public class TriviaFragment extends Fragment {
   private FragmentTriviaBinding binding;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -27,7 +25,6 @@ public class TriviaFragment extends Fragment {
     public TriviaFragment() {
         // Required empty public constructor
     }
-
     public static TriviaFragment newInstance(String param1, String param2) {
         TriviaFragment fragment = new TriviaFragment();
         Bundle args = new Bundle();
@@ -51,23 +48,28 @@ public class TriviaFragment extends Fragment {
 
         binding = FragmentTriviaBinding.inflate(getLayoutInflater(), container, false);
         binding.textTitulo.setText("Hola " + mParam1);
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trivia, container, false);
-        //binding.radioGroupPokemon.setOnCheckedChangeListener((group,checkId)-> radioButtonResultado = che
-
+       // return inflater.inflate(R.layout.fragment_trivia, container, false);
         binding.btnEnviar.setOnClickListener (view -> {
 
-            boolean correcto = false;
+
+            boolean correcta = false;
             Bundle bundle = new Bundle();
-            if(binding.radioGroupPokemon.getCheckedRadioButtonId() == binding.radioButton1.getId()) {
-                correcto = true;
-
-
+            if (binding.radioGroupPokemon.getCheckedRadioButtonId() == binding.radioButton1.getId()) {
+                correcta = true;
                 bundle.putString("nombre", mParam1);
-                bundle.putBoolean("respuesta", correcto);
+                bundle.putBoolean("respuesta", correcta);
                 Navigation.findNavController(getView()).navigate(R.id.action_triviaFragment_to_respuestaFragment, bundle);
-            });
-        
+
+            }
+
+
+
+        });
+
         return binding.getRoot();
-    });
-}}
+    }}
+
+
+
+
+

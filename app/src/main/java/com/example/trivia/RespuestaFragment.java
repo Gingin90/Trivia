@@ -25,7 +25,7 @@ public class RespuestaFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private String mParam1;
-    private String mParam2;
+    private Boolean mParam2;
 
     public RespuestaFragment() {
         // Required empty public constructor
@@ -53,7 +53,8 @@ public class RespuestaFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam1 = getArguments().getString("nombre");
+            mParam2 = getArguments().getBoolean("respuesta");
 
         }
     }
@@ -62,12 +63,11 @@ public class RespuestaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_respuesta, container, false);
-
+        //return inflater.inflate(R.layout.fragment_respuesta, container, false);
 
         binding = FragmentRespuestaBinding.inflate(getLayoutInflater(), container, false);
 
-        if(respuesta== true) {
+        if(mParam2== true){
             binding.textViewResp.setText("Respuesta Correcta");
         }else {
             binding.textViewResp.setText("Respuesta Incorrecta");
@@ -81,8 +81,8 @@ public class RespuestaFragment extends Fragment {
         });
 
 
-
         return binding.getRoot();
+
     }
 }
 
